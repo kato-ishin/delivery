@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>運送サービス | 一心株式会社</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 引入 header -->
+  <div id="header"></div>
+
+  <main>
+    <section class="service-introduction">
+      <h1>運送サービス</h1>
+      <p>一心株式会社では、お客様のニーズに合わせた運送サービスを提供しています。</p>
+
+      <h2>サービス内容</h2>
+      <ul>
+        <li><strong>定期便:</strong> 定期的に運行される便で、安定した運送サービスを提供します。</li>
+        <li><strong>チャーター便:</strong> 特定の貨物や要望に合わせたチャーター便サービス。</li>
+        <li><strong>スポット便:</strong> 短期間または一回限りの特急運送サービス。</li>
+      </ul>
+
+      <h2>サービスの特徴</h2>
+      <ul>
+        <li>迅速で信頼性の高い配送</li>
+        <li>業界経験豊富なドライバーによる安心のサービス</li>
+        <li>最新の車両と設備でお客様の大切な貨物を守ります</li>
+      </ul>
+
+      <h2>お問い合わせ</h2>
+      <p>詳細な運送サービスについてのお問い合わせは、以下のリンクからお願いします。</p>
+      <p><a href="inquiry.html">お問い合わせページへ</a></p>
+    </section>
+  </main>
+
+  <!-- 引入 footer -->
+  <div id="footer"></div>
+
+  <script>
+    // 加载 header.html
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // 加载 footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>お問い合わせ | 一心株式会社</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .contact h1, .contact h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    form {
+      background-color: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    @media (max-width: 768px) {
+      form {
+        padding: 15px;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+      }
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 引入 header -->
+  <div id="header"></div>
+
+  <main>
+    <section class="contact">
+      <div class="container">
+        <h1>お問い合わせ</h1>
+        <p>ご質問やご要望がございましたら、下記のフォームからお問い合わせください。</p>
+  
+        <form action="submit_inquiry.php" method="post">
+          <div class="form-group">
+            <label for="name">お名前（必須）</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="email">メールアドレス（必須）</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="subject">件名</label>
+            <input type="text" id="subject" name="subject" />
+          </div>
+  
+          <div class="form-group">
+            <label for="message">お問い合わせ内容（必須）</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+  
+          <div class="form-group">
+            <button type="submit">送信する</button>
+          </div>
+        </form>
+  
+        <h2>お電話でのお問い合わせ</h2>
+        <p>お急ぎの方はお電話にてお問い合わせください。</p>
+        <p>スマホ: 080-4313-4745</p>
+        <p>メール: kato.isshin@gmail.com</p>
+  
+        <h2>所在地</h2>
+        <p>〒356-0008<br>埼玉県ふじみ野市福岡１−１３−８</p>
+      </div>
+      
+    </section>
+  </main>
+
+  <!-- 引入 footer -->
+  <div id="footer"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

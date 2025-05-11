@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホーム | 一心株式会社</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 引入 header -->
+  <div id="header"></div>
+
+  <main>
+    <section class="intro">
+      <h1>一心株式会社へようこそ</h1>
+      <p>一心株式会社は、東京都千代田区を拠点に、全国のお客様に向けて多様な運送サービスを提供しています。設立から40年以上、安心・安全を第一に、お客様のニーズに合わせた最適な運送プランを提供し、信頼と実績を積み重ねてきました。</p>
+      <p>当社は、定期便、チャーター便、スポット便など、多彩な運送サービスを提供し、あらゆる業界のお客様にご利用いただいています。</p>
+    </section>
+
+    <section class="services">
+      <h2>当社のサービス</h2>
+      <p>一心株式会社では、次のような運送サービスを提供しています：</p>
+      <ul>
+        <li><strong>定期便</strong> - 定期的に配送が必要なお客様向けに、確実なスケジュールで運送を行います。</li>
+        <li><strong>チャーター便</strong> - 特別な配送が必要なお客様に対して、専用の輸送手段を提供します。</li>
+        <li><strong>スポット便</strong> - 急な配送や短期の配送が必要なお客様に、迅速に対応します。</li>
+        <li><strong>荷物の梱包および倉庫保管サービス</strong> - 配送だけでなく、荷物の梱包や一時保管も承ります。</li>
+      </ul>
+    </section>
+
+    <section class="why-us">
+      <h2>一心を選ぶ理由</h2>
+      <p>なぜ多くのお客様が一心株式会社を選んでいるのでしょうか？ それは、以下の理由によるものです：</p>
+      <ul>
+        <li><strong>信頼性</strong> - 40年以上にわたる業務実績と数多くのお客様からの信頼を得ています。</li>
+        <li><strong>柔軟な対応</strong> - お客様のニーズに合わせて、柔軟かつ迅速にサービスを提供します。</li>
+        <li><strong>安全・安心の提供</strong> - 運送中の荷物の安全を最優先にし、最新の運送技術と安全管理体制を整えています。</li>
+        <li><strong>コストパフォーマンス</strong> - お客様の予算に合わせた最適なプランを提供します。</li>
+      </ul>
+    </section>
+
+    <section class="clients">
+      <h2>主な取引先</h2>
+      <p>一心株式会社は、以下のような多くの業界の企業様と取引をさせていただいています：</p>
+      <ul>
+        <li>株式会社アポルテフードファクトリー</li>
+        <li>株式会社ぐるなび</li>
+        <li>佐川急便株式会社</li>
+        <li>スターフェスティバル株式会社</li>
+        <li>株式会社仙太郎</li>
+        <li>第一貨物株式会社</li>
+        <li>日本フードデリバリー株式会社</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>お問い合わせ</h2>
+      <p>サービスに関するご質問や、運送のご依頼がある場合は、下記のフォームからお問い合わせいただけます。</p>
+      <p><a href="inquiry.html">お問い合わせフォームへ</a></p>
+    </section>
+  </main>
+
+  <!-- 引入 footer -->
+  <div id="footer"></div>
+
+  <script>
+    // 加载 header.html
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // 加载 footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

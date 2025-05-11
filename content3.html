@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求人・協力会社募集 | 一心株式会社</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 引入 header -->
+  <div id="header"></div>
+
+  <main>
+    <section class="recruitment-info">
+      <h1>求人・協力会社募集</h1>
+
+      <h2>現在の募集職種</h2>
+      <div class="job-list">
+        <div class="job-item">
+          <h3>ドライバー（正社員）</h3>
+          <p>仕事内容：貨物自動車を使った運送業務を行っていただきます。</p>
+          <p>必要資格：普通自動車運転免許（AT限定不可）、運転経験者優遇。</p>
+          <p>給与：月給25万円～30万円（経験・能力に応じて決定）</p>
+          <p>勤務時間：8:00～17:00（休憩1時間）</p>
+        </div>
+        <div class="job-item">
+          <h3>倉庫作業員（パート）</h3>
+          <p>仕事内容：倉庫内での商品整理、梱包作業を行っていただきます。</p>
+          <p>必要資格：未経験者歓迎。</p>
+          <p>給与：時給1,200円～（能力に応じて昇給あり）</p>
+          <p>勤務時間：9:00～17:00の間でシフト制</p>
+        </div>
+        <div class="job-item">
+          <h3>営業職（契約社員）</h3>
+          <p>仕事内容：新規開拓営業及び既存顧客との関係構築を行っていただきます。</p>
+          <p>必要資格：営業経験者優遇。</p>
+          <p>給与：月給23万円～28万円</p>
+          <p>勤務時間：9:00～18:00</p>
+        </div>
+      </div>
+
+      <h2>応募方法</h2>
+      <p>ご応募は下記のフォームまたはお電話でお申し込みください。</p>
+      <p>TEL: 080-4313-4745</p>
+
+      <h2>協力会社募集中</h2>
+      <p>当社では、物流業務を一緒に支えていただける協力会社を募集中です。</p>
+      <p>興味がある方は、お気軽にお問い合わせください。</p>
+      <p>詳しくはお電話またはお問い合わせフォームからご連絡ください。</p>
+    </section>
+
+    <section class="contact">
+      <h2>お問い合わせ</h2>
+      <p>サービスに関するご質問や、運送のご依頼がある場合は、下記のフォームからお問い合わせいただけます。</p>
+      <p><a href="inquiry.html">お問い合わせフォームへ</a></p>
+    </section>
+  </main>
+
+  <!-- 引入 footer -->
+  <div id="footer"></div>
+
+  <script>
+    // 加载 header.html
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    // 加载 footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
