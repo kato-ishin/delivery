@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>お問い合わせ | 一心株式会社</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
+
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    .contact h1, .contact h2 {
+    .contact h1,
+    .contact h2 {
       color: #333;
       margin-bottom: 15px;
     }
@@ -36,12 +42,15 @@
       color: #333;
     }
 
+    /* 统一的边框样式 */
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
     textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
+      /* 统一的边框 */
       border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
@@ -75,14 +84,15 @@
         width: 100%;
       }
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 16px;
     }
-
   </style>
 </head>
+
 <body>
 
   <!-- 引入 header -->
@@ -93,49 +103,56 @@
       <div class="container">
         <h1>お問い合わせ</h1>
         <p>ご質問やご要望がございましたら、下記のフォームからお問い合わせください。</p>
-  
-        <form action="submit_inquiry.php" method="post">
+
+        <form id="contact-form">
           <div class="form-group">
             <label for="name">お名前（必須）</label>
             <input type="text" id="name" name="name" required />
           </div>
-  
+
           <div class="form-group">
             <label for="email">メールアドレス（必須）</label>
             <input type="email" id="email" name="email" required />
           </div>
-  
+
+          <div class="form-group">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone" pattern="^\d{10,11}$" placeholder="08012345678" />
+            <small>電話番号は数字のみで10～11桁で入力してください。</small>
+          </div>
+
           <div class="form-group">
             <label for="subject">件名</label>
             <input type="text" id="subject" name="subject" />
           </div>
-  
+
           <div class="form-group">
             <label for="message">お問い合わせ内容（必須）</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-  
+
           <div class="form-group">
             <button type="submit">送信する</button>
           </div>
         </form>
-  
+
         <h2>お電話でのお問い合わせ</h2>
         <p>お急ぎの方はお電話にてお問い合わせください。</p>
         <p>スマホ: 080-4313-4745</p>
         <p>メール: kato.isshin@gmail.com</p>
-  
+
         <h2>所在地</h2>
         <p>〒356-0008<br>埼玉県ふじみ野市福岡１−１３−８</p>
       </div>
-      
     </section>
   </main>
 
   <!-- 引入 footer -->
   <div id="footer"></div>
 
-  <script>
+  <script type="text/javascript">
+
+    // Fetch header and footer content
     fetch('header.html')
       .then(response => response.text())
       .then(data => {
@@ -147,6 +164,51 @@
       .then(data => {
         document.getElementById('footer').innerHTML = data;
       });
+
+    // 初始化 EmailJS（确保在使用之前加载了库）
+    (function () {
+      emailjs.init({
+        publicKey: "OkQYV4tnxTr04W5ir",// 替换为你的 Public Key
+      });
+    })();
+
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // 阻止默认表单提交
+
+      // 获取表单数据
+      var formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
+      // 发送给管理员的邮件
+      emailjs.send("service_jq7pnrd", "template_49nl6om", formData).then(
+        function (response) {
+          console.log("管理者へのメール送信成功", response);
+        },
+        function (error) {
+          console.log("管理者へのメール送信失敗", error);
+        }
+      );
+
+      // 发送自动回复邮件给用户
+      emailjs.send("service_jq7pnrd", "template_chsdpr3", formData).then(
+        function (response) {
+          alert("送信に成功しました。ありがとうございます。自動返信メールをお送りしました！");
+          document.getElementById("contact-form").reset(); // 清空表单
+        },
+        function (error) {
+          alert("送信に失敗しました：" + JSON.stringify(error));
+        }
+      );
+    });
+
   </script>
+
 </body>
+
 </html>
